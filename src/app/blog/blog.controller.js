@@ -13,6 +13,32 @@ const createBlog = async (req, res,next) => {
     }
 }
 
+const deleteSpecificBlog = async (req, res,next) => {
+    try {
+        const {id} = req.params;
+        const {authorId} = req.body;
+        const deletedBlog = await blogService.deleteSpecificBlog(id, authorId);
+        res.status(200).json({message: 'blog deleted successfully.',success: true,data: deletedBlog});
+    }catch (error){
+        next(error)
+    }
+}
+
+const restoreBlog = async (req, res,next) => {
+    try {
+        const {id} = req.params;
+        const {authorId} = req.body;
+        const restoreBlog = await blogService.restoreBlog(id, authorId);
+        res.status(200).json({
+            message: 'blog restored successfully.',success: true,data: restoreBlog
+        })
+    }catch (error){
+        next(error)
+    }
+}
+
 module.exports = {
     createBlog,
+    deleteSpecificBlog,
+    restoreBlog,
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/src/migrations/blogs.sql" value="89822f5a-9563-4a0d-b318-5703c937d76a" />
-    <file url="file://$PROJECT_DIR$/src/migrations/users.sql" value="89822f5a-9563-4a0d-b318-5703c937d76a" />
+    <file url="file://$PROJECT_DIR$/migrations/blogs.sql" value="89822f5a-9563-4a0d-b318-5703c937d76a" />
+    <file url="file://$PROJECT_DIR$/migrations/users.sql" value="89822f5a-9563-4a0d-b318-5703c937d76a" />
   </component>
 </project>

@@ -6,3 +6,5 @@ CREATE TABLE users
     password_hash VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT NOW()
 )
+
+ALTER TABLE users ADD COLUMN updated_at TIMESTAMP DEFAULT NOW()
