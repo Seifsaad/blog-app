@@ -1,7 +1,7 @@
 const pool = require('../../common/db/db')
 
 const createBlog = async (title, description,authorId) => {
-    const {rows} =    await pool.query(`INSERT INTO blogs (title,content,author_id) VALUES ($1,$2,$3)`,[title,description,authorId])
+    const {rows} =    await pool.query(`INSERT INTO blogs (title,content,author_id) VALUES ($1,$2,$3) RETURNING *`,[title,description,authorId])
     return rows[0];
 }
 

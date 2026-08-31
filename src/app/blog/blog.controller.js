@@ -1,8 +1,8 @@
 const blogService = require("./blog.service")
 const createBlog = async (req, res,next) => {
     try{
-        const {title, description, authorId} = req.body;
-        const createdBlog = await blogService.createBlog(title, description, authorId);
+        const {title, description, token} = req.body;
+        const createdBlog = await blogService.createBlog(title, description, token);
         res.status(201).json({
             message: 'blog created successfully.',
             success: true,
@@ -16,8 +16,8 @@ const createBlog = async (req, res,next) => {
 const deleteSpecificBlog = async (req, res,next) => {
     try {
         const {id} = req.params;
-        const {authorId} = req.body;
-        const deletedBlog = await blogService.deleteSpecificBlog(id, authorId);
+        const {token} = req.body;
+        const deletedBlog = await blogService.deleteSpecificBlog(id, token);
         res.status(200).json({message: 'blog deleted successfully.',success: true,data: deletedBlog});
     }catch (error){
         next(error)
@@ -27,8 +27,8 @@ const deleteSpecificBlog = async (req, res,next) => {
 const restoreBlog = async (req, res,next) => {
     try {
         const {id} = req.params;
-        const {authorId} = req.body;
-        const restoreBlog = await blogService.restoreBlog(id, authorId);
+        const {token} = req.body;
+        const restoreBlog = await blogService.restoreBlog(id,token);
         res.status(200).json({
             message: 'blog restored successfully.',success: true,data: restoreBlog
         })
