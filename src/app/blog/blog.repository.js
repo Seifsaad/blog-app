@@ -20,6 +20,16 @@ async function restoreBlog(id,authorId){
     return rows[0];
 }
 
+async function findBlogs(id){
+    const {rows} = await pool.query(`SELECT * FROM blogs WHERE id=$1`,[id]);
+    return rows[0];
+}
+
+async function updateBlog(id,newData){
+    const {rows} =await pool.query(`UPDATE blogs SET title = $1 , content = $2, updated_at = NOW() WHERE id = $3 RETURNING *`,[newData.title,newData.description,id]);
+    return rows[0];
+}
+
 
 
 module.exports = {
@@ -27,4 +37,6 @@ module.exports = {
     hardDeleteBlog,
     softDeleteBlog,
     restoreBlog,
+    updateBlog,
+    findBlogs,
 }
